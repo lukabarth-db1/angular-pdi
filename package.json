@@ -2,6 +2,7 @@
   "name": "jornada-milhas",
   "version": "0.0.0",
   "scripts": {
+    "test:ci": "ng test --no-watch --no-progress --browsers=ChromeHeadless",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
