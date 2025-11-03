@@ -16,10 +16,13 @@ describe('FormBuscaPassagens', () => {
 
       const formElement: HTMLElement = fixture.nativeElement;
 
-      const matButtonToggle = formElement.querySelectorAll('mat-button-toggle-group');
-      expect(matButtonToggle.length).toBe(2);
+      const matButtonToggle = formElement.querySelector('mat-button-toggle-group');
+      expect(matButtonToggle).toBeTruthy();
 
-      const options = Array.from(matButtonToggle).map(field => field.querySelector('mat-button-toggle')?.textContent);
+      const matButtonToggles = matButtonToggle?.querySelectorAll('mat-button-toggle');
+      expect(matButtonToggles?.length).toBe(2);
+
+      const options = Array.from(matButtonToggles || []).map(toggle => toggle.textContent?.trim());
       expect(options).toContain('Ida e Volta');
       expect(options).toContain('Somente Ida');
     });
